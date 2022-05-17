@@ -1,4 +1,4 @@
-import logo from './filhaum.jpg';
+import logo from './julhana.jpg';
 import './App.css';
 
 function App() {
@@ -7,15 +7,15 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          meu nome é Juliana, mas pode me chamar de 
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://www.instagram.com/julianayamaguchi.tattoo/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          J U C A
         </a>
       </header>
     </div>
