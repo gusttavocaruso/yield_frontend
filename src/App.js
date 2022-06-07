@@ -1,24 +1,17 @@
-import logo from './julhana.jpg';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          meu nome é Juliana, mas pode me chamar de 
-        </p>
-        <a
-          className="App-link"
-          href="https://www.instagram.com/julianayamaguchi.tattoo/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          J U C A
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
