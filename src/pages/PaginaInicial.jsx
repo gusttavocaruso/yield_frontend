@@ -46,10 +46,10 @@ const footers = [
   },
 ];
 
+function PaginaConteudo() {
 
-function PricingContent() {
   const handleSubmit = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     const dataF = {
@@ -64,6 +64,7 @@ function PricingContent() {
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
+
       <AppBar
         position="static"
         color="default"
@@ -71,9 +72,11 @@ function PricingContent() {
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
+
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-            Company name
+            Nome do usuário
           </Typography>
+
           <nav>
             <Link
               variant="button"
@@ -100,9 +103,11 @@ function PricingContent() {
               Support
             </Link>
           </nav>
+
           <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-            Login
+            Log-out
           </Button>
+
         </Toolbar>
       </AppBar>
 
@@ -117,6 +122,7 @@ function PricingContent() {
         >
           yieldCheck
         </Typography>
+
         <Typography variant="h5" align="center" color="text.secondary" component="p">
           Insira a quilometragem do odômetro do seu carro no momento do abastecimento e informe os litros abastecidos.
         </Typography>
@@ -198,6 +204,6 @@ function PricingContent() {
   );
 }
 
-export default function Pricing() {
-  return <PricingContent />;
+export default function PaginaInicial() {
+  return <PaginaConteudo />;
 }

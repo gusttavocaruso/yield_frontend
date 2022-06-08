@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { signUp } from '../axios/helpers/signHelper';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -30,15 +32,29 @@ const theme = createTheme();
 
 export default function SignUp() {
 
+  const navigate = useNavigate();
+
+  const checkPassword = (pass1, pass2) => {
+    return (pass1 === pass2) ? true
+      : console.log('Senhas diferentes'); 
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      nome: data.get('nome'),
-      sobrenome: data.get('sobrenome'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const fd = new FormData(event.currentTarget);
+
+    const data = {
+      name: fd.get('nome'),
+      email: fd.get('email'),
+      password: fd.get('password')
+    }
+
+    if (checkPassword(data.password, fd.get('passwordd'))) {
+      console.log(data);
+      signUp(data);
+      navigate('/sign-in');
+    }
+
   };
 
   return (
@@ -67,7 +83,7 @@ export default function SignUp() {
 
             <Grid container spacing={2}>
 
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
                   name="nome"
@@ -76,17 +92,6 @@ export default function SignUp() {
                   id="nome"
                   label="Nome"
                   autoFocus
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="sobrenome"
-                  label="Sobrenome"
-                  name="sobrenome"
-                  autoComplete="family-name"
                 />
               </Grid>
 
@@ -110,6 +115,18 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="passwordd"
+                  label="Confirme a Senha"
+                  type="password"
+                  id="passwordd"
+                  autoComplete="new-password-again"
                 />
               </Grid>
 
