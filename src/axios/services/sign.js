@@ -5,7 +5,7 @@ const defaultHeaders = {
 };
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://yield-check-back.herokuapp.com/account',
   timeout: 5000,
   headers: defaultHeaders,
 });

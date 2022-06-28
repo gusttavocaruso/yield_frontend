@@ -34,18 +34,23 @@ export default function SignIn() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const fd = new FormData(event.currentTarget);
 
-    const data = {
+    const userPayload = {
       email: fd.get('email'),
       password: fd.get('password'),
     };
 
-    console.log(data);
-    signIn(data);
-    navigate('/app');
+    const response = await signIn(userPayload);
+    if (response.status === 200) {
+      navigate('/app');
+      localStorage.setItem('token-yieldC', response.data.token);
+    } else {
+      alert('Credenciais inválidas');
+      
+    }
   };
 
   return (

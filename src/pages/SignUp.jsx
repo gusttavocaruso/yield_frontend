@@ -50,7 +50,7 @@ export default function SignUp() {
     }
 
     if (checkPassword(data.password, fd.get('passwordd'))) {
-      console.log(data);
+      // console.log(data);
       signUp(data);
       navigate('/sign-in');
     }

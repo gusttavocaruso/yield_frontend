@@ -10,7 +10,7 @@ import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import { TextField } from '@mui/material';
-import { firstIn } from '../axios/helpers/UserHelper';
+import { firstIn } from '../axios/helpers/supplyHelper';
 
 function Copyright(props) {
   return (

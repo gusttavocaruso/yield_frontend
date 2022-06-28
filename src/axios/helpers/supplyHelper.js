@@ -1,4 +1,4 @@
-import userApi from "../services/userApi";
+import userApi from "../services/supplyApi";
 
 export const firstIn = async (userInfo) => {
   try {
